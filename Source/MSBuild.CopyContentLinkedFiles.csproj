@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">NuGet</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D979D096-14F2-48ED-B8F6-B6074D02EBAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NuGet.MSBuild.CopyContentLinkedFiles</RootNamespace>
+    <AssemblyName>NuGet.MSBuild.CopyContentLinkedFiles</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NuGet|AnyCPU'">
+    <OutputPath>bin\NuGet\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="build\MSBuild.WebApplication.CopyContentLinkedFiles.targets" />
+    <None Include="Package.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tools\install.ps1" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="content\MSBuild.WebApplication.CopyContentLinkedFiles.Dummy.txt" />
+  </ItemGroup>
+  <Target Name="Build">
+    <MakeDir Directories="$(OutputPath)">
+    </MakeDir>
+    <Exec Command="$(ProjectDir)packages\NuGet.CommandLine.2.7.0\tools\NuGet.exe pack Package.nuspec -OutputDirectory $(OutputPath)" WorkingDirectory="$(ProjectDir)" />
+  </Target>
+  <Target Name="Rebuild" DependsOnTargets="Clean;Build">
+  </Target>
+  <Target Name="Clean">
+    <RemoveDir Directories="$(OutDir)">
+    </RemoveDir>
+  </Target>
+</Project>

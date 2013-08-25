@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata minClientVersion="2.5">
+    <id>MSBuild.WebApplication.CopyContentLinkedFiles</id>
+    <version>1.0.0</version>
+    <authors>Maxim Kornilov</authors>
+    <owners>Maxim Kornilov</owners>
+    <licenseUrl>https://github.com/maximkornilov/MSBuild.CopyContentLinkedFiles/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/maximkornilov/MSBuild.CopyContentLinkedFiles</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The Web Application project supports the use of linked project files, however, when the project is built those files are not copied into the web application folder and hence are not available to the web application. This package adds MSBuild target which copies all content files added as link to Web Application folder during build.</description>
+    <summary>Adds MSBuild target which copies all content files added as link to Web Application project during build.</summary>
+    <copyright>Copyright (c) Maxim Kornilov</copyright>
+    <language>en-US</language>
+    <tags>MSBuild Linked Content Files</tags>
+  </metadata>  
+  <files>
+    <file src="build\" target="build" />
+    <file src="content\" target="content" />
+    <file src="tools\" target="tools" />
+  </files>
+</package>

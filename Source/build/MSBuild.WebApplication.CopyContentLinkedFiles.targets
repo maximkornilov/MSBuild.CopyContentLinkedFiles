@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ /* **********************************************************************************
+  * Copyright (c) Maxim Kornilov
+  * This source code is subject to terms and conditions of the MIT License. 
+  * A copy of the license can be found in the License.txt file at the root of this distribution.
+  * By using this source code in any fashion, you are agreeing to be bound by the terms of the MIT License.
+  * You must not remove this notice from this software.
+  * **********************************************************************************/
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Override the default target dependencies to  run additional target to copy 
+         all content files which are added as link to web application project. -->
+  <PropertyGroup>
+    <BuildDependsOn>
+      CopyLinkedContentFiles;
+      $(BuildDependsOn);
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <!--
+    ============================================================
+    CopyLinkedContentFiles
+
+    Copies all content files which are added as link to web application project. 
+    
+    Note: this target doesn't copy files for which build action is set to 'None'. 
+    Only files for which build action is set to 'Content' are copied.
+    ============================================================
+    -->
+  <Target Name="CopyLinkedContentFiles">
+    <!-- Removes old copies of the files and copies them again. -->
+    <Delete Condition=" '%(Content.Link)' != '' AND Exists('$(WebProjectOutputDir)\%(Content.Link)') "
+            Files="$(WebProjectOutputDir)\%(Content.Link)" />
+    <Copy Condition=" '%(Content.Link)' != '' " SourceFiles="%(Content.Identity)"
+          DestinationFiles="$(WebProjectOutputDir)\%(Content.Link)" />
+  </Target>
+</Project>
