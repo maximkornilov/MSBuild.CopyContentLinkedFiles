@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  /* **********************************************************************************
   * Copyright (c) Maxim Kornilov
@@ -29,10 +29,10 @@
     ============================================================
     -->
   <Target Name="CopyLinkedContentFiles">
-    <!-- Removes old copies of the files and copies them again. -->
-    <Delete Condition=" '%(Content.Link)' != '' AND Exists('$(WebProjectOutputDir)\%(Content.Link)') "
-            Files="$(WebProjectOutputDir)\%(Content.Link)" />
-    <Copy Condition=" '%(Content.Link)' != '' " SourceFiles="%(Content.Identity)"
-          DestinationFiles="$(WebProjectOutputDir)\%(Content.Link)" />
+    <Copy SourceFiles="%(Content.Identity)" 
+          DestinationFiles="%(Content.Link)" 
+          SkipUnchangedFiles='true' 
+          OverwriteReadOnlyFiles='true' 
+          Condition="'%(Content.Link)' != ''" />
   </Target>
 </Project>
