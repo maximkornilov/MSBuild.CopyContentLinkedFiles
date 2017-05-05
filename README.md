@@ -1,6 +1,6 @@
-[![AppVeyor branch](https://img.shields.io/appveyor/ci/MaximKornilov/msbuild-copycontentlinkedfiles/master.svg?style=flat-square)]()
-[![NuGet](https://img.shields.io/nuget/v/MSBuild.WebApplication.CopyContentLinkedFiles.svg?style=flat-square)]()
-[![NuGet](https://img.shields.io/nuget/dt/MSBuild.WebApplication.CopyContentLinkedFiles.svg?style=flat-square)]()
+[![AppVeyor branch](https://img.shields.io/appveyor/ci/MaximKornilov/msbuild-copycontentlinkedfiles/master.svg?style=flat-square)](https://ci.appveyor.com/project/MaximKornilov/msbuild-copycontentlinkedfiles/branch/master)
+[![NuGet](https://img.shields.io/nuget/v/MSBuild.WebApplication.CopyContentLinkedFiles.svg?style=flat-square)](https://www.nuget.org/packages/MSBuild.WebApplication.CopyContentLinkedFiles/)
+[![NuGet](https://img.shields.io/nuget/dt/MSBuild.WebApplication.CopyContentLinkedFiles.svg?style=flat-square)](https://www.nuget.org/packages/MSBuild.WebApplication.CopyContentLinkedFiles/)
 
 ## MSBuild.WebApplication.CopyContentLinkedFiles
 This repository contains sources of the NuGet package which adds MSBuild target to selected projects. This target copies all content files added as link to Web Application folder during build. 
